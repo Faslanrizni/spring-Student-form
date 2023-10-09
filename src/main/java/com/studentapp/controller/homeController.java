@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,5 +34,17 @@ public class homeController {
     public String createStudent(@ModelAttribute Student student ){
        studentDao.saveStudent(student);
         return "student-new";
+    }
+    @RequestMapping(path ="/edit-student/{id}",method = {RequestMethod.GET, RequestMethod.POST})
+    public String updateStudent(@PathVariable long id,Model model){
+        Student student = studentDao.getStudent(id);
+        model.addAttribute("student",student);
+        return "student_edit";
+    }
+
+    @RequestMapping(path ="/modify-student",method = RequestMethod.POST)
+    public String modifyStudent(@ModelAttribute Student student){
+        studentDao.updateStudent(student);
+        return "home-page";
     }
 }
