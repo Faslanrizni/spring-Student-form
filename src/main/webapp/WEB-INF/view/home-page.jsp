@@ -1,4 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false"%>
 <jsp:include page="header.jsp"/>
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -14,17 +17,18 @@
                 </tr>
                 </thead>
                 <tbody>
+                <c:forEach items="${students}" var="student">
                 <tr>
-                    <td>123654</td>
-                    <td>Nimal</td>
-                    <td>Colombo</td>
-                    <td>35000</td>
+                    <td>${student.id}</td>
+                    <td>${student.name}</td>
+                    <td>${student.address}</td>
+                    <td>${student.salary}</td>
                     <td>
                         <a href="#" class="btn btn-success">Update</a>
                         <a href="#" class="btn btn-danger">Delete</a>
-
                     </td>
                 </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>
