@@ -13,7 +13,7 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
       <version>5.3.27</version>
-    </dependency>
+    </dependency><!--newly added after project created-->
 
     <dependency>
       <groupId>javax.servlet</groupId>
