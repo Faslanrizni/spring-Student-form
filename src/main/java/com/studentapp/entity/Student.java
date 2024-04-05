@@ -23,3 +23,5 @@ public class Student {
     private String address;
     private double salary;
 }
+
+

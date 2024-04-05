@@ -3,6 +3,7 @@ package com.studentapp.dao.impl;
 import com.studentapp.dao.StudentDao;
 import com.studentapp.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,8 @@ import java.util.List;
 @Repository
 public class StudentDaoImpl implements StudentDao {
 
-    @Autowired
+    @Autowired /*instance injecting => we can use this instance */
+//    @Qualifier("hibernateTemplate")
     private HibernateTemplate hibernateTemplate;
     @Transactional
     public boolean saveStudent(Student student) {
